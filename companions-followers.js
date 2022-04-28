@@ -37,12 +37,15 @@ ___________________________`);
 
 Hooks.on('preUpdateActor', async (actor, update, options, userId) => {
 
+    console.log(actor)
+    console.log(update)
+    
     //update flags on caregivers, these flags will be used to force update on the companions
     if(update.flags && update.flags['mcdm-companions-followers']?.caregiver){
         const oldCaregiverID = actor.data.flags['mcdm-companions-followers'].caregiver;
         const newCaregiverID = update.flags['mcdm-companions-followers'].caregiver; 
         game.actors.get(newCaregiverID).setFlag('mcdm-companions-followers', 'companion', actor.id);
-        game.actors.get(oldCaregiverID).setFlag('mcdm-companions-followers', 'companion', null);
+        if(oldCaregiverID) game.actors.get(oldCaregiverID).setFlag('mcdm-companions-followers', 'companion', null);
     }
 
     //force the companion to update its data if the caregiver changes

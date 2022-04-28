@@ -1,0 +1,21 @@
+<form autocomplete="off">
+    <p class="notes">{{ localize "DND5E.HitDiceConfigHint" }}</p>
+    <div class="form-group">
+        <label>Companion (d8)</label>
+        <div class="form-fields">
+            <button class="decrement" type="button">-</button>
+            <input title="{{ localize 'DND5E.HitDiceRemaining' }}" class="current" type="number" name="attributes.hd" value="{{data.attributes.hd}}" />
+            <span class="sep">/</span>
+            <input title="{{ localize 'DND5E.HitDiceMax' }}" class="max" type="number" value="{{data.details.level}}" disabled />
+            <button class="increment" type="button">+</button>
+
+            <button class="roll-hd" data-hd-denom="{{this.diceDenom}}" {{#unless this.canRoll}}disabled{{/unless}}>
+                <i class="fas fa-dice-d20"></i> {{ localize "DND5E.Roll" }}
+            </button>
+        </div>
+    </div>
+    <div class="dialog-buttons">
+        <button type="reset" name="reset"><i class="fas fa-redo"></i> {{ localize "SETTINGS.5eUndoChanges" }}</button>
+        <button type="submit" name="submit" value="1"><i class="far fa-save"></i> {{ localize "SETTINGS.Save"}}</button>
+    </div>
+</form>

@@ -1,0 +1,14 @@
+<form>
+    <div class="hp-field form-group">
+        <input type="number" value="{{data.attributes.hp.max}}" disabled>
+    </div>
+
+    <div class="form-group stacked">
+        <label>{{localize "DND5E.ArmorClassFormula"}}</label>
+        <input type="text" name="attributes.hp.formula" value="{{data.attributes.hp.formula}}" placeholder="7 + 7 * @details.level">
+    </div>
+
+    <button type="submit" name="submit" value="1">
+        <i class="far fa-save"></i> {{ localize "DND5E.TraitSave" }}
+    </button>
+</form>

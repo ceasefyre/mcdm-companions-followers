@@ -56,14 +56,14 @@ Hooks.on("renderMCDMCaregiver5eSheet", (app, html) => {
 // </div>`;
 //     html.find(".traits .form-group").first().before(htmlElementCompanion);
 
-    const htmlElemenetFerocity =`
-<li class="attribute ferocity">
-    <h4 class="attribute-name box-title rollable" data-action="rollFerocity">Ferocity</h4>
-    <div class="attribute-value">
-        <input name="data.ferocity" type="text" data-dtype="Number" placeholder="0" value="${app.actor.data.data.ferocity || 0}">
-    </div>
-</li>`;
-    html.find(".attribute + .initiative").last().after(htmlElemenetFerocity);
+//     const htmlElemenetFerocity =`
+// <li class="attribute ferocity">
+//     <h4 class="attribute-name box-title rollable" data-action="rollFerocity">Ferocity</h4>
+//     <div class="attribute-value">
+//         <input name="data.attributes.ferocity" type="text" data-dtype="Number" placeholder="0" value="${app.actor.data.data.attributes.ferocity || 0}">
+//     </div>
+// </li>`;
+//     html.find(".attribute + .initiative").last().after(htmlElemenetFerocity);
 
 
 
