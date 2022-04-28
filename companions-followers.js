@@ -18,11 +18,11 @@ ___  _________________  ___
 ___________________________`);
 
 
-    Actors.registerSheet("dnd5e", MCDMCaregiver5eSheet, {
-        types: ["character"],
-        makeDefault: false,
-        label: "Caregiver Character Sheet"
-    });
+    // Actors.registerSheet("dnd5e", MCDMCaregiver5eSheet, {
+    //     types: ["character"],
+    //     makeDefault: false,
+    //     label: "Caregiver Character Sheet"
+    // });
 
     extendedActorFunctions();
 
@@ -39,7 +39,7 @@ Hooks.on('preUpdateActor', async (actor, update, options, userId) => {
 
     console.log(actor)
     console.log(update)
-    
+
     //update flags on caregivers, these flags will be used to force update on the companions
     if(update.flags && update.flags['mcdm-companions-followers']?.caregiver){
         const oldCaregiverID = actor.data.flags['mcdm-companions-followers'].caregiver;
