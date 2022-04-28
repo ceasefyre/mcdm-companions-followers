@@ -14,7 +14,6 @@
     }
   ],
   "esmodules": ["/companions-followers.js"],
-  "styles": ["/css/betternpcsheet.css", "css/rpg-awesome.css"],
   "packs": [],
   "languages": [
       {
