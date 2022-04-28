@@ -4,6 +4,8 @@ import ActorSheet5eCharacter from "../../systems/dnd5e/module/actor/sheets/chara
 
 import MCDMCaregiver5eSheet from './modules/caregiver-sheet.js';
 import MCDMCompanion5eSheet from './modules/companion-sheet.js';
+import MCDMRetainer5eSheet from './modules/retainer-sheet.js';
+
 import extendedActorFunctions from './modules/extendedActor.js';
 
 Hooks.on('init', () => {
@@ -32,8 +34,21 @@ ___________________________`);
         label: "Comanion Sheet"
     });
 
+    Actors.registerSheet("dnd5e", MCDMRetainer5eSheet, {
+        type: ["npc"],
+        makeDefault: false,
+        label: "Retainer Sheet"
+    })
+
 });
 
+Hooks.on("ready", () => {
+    CONFIG.DND5E.retainerArmor = {
+        light: 13,
+        medium: 15,
+        heavy: 18
+    }
+});
 
 Hooks.on('preUpdateActor', async (actor, update, options, userId) => {
 

@@ -2,3 +2,23 @@
     font-size: 3em;
     text-align: center;
 }
+
+.dnd5e.sheet.actor .retainer-button {
+    right: 2px;
+    top: 3px;
+    position: absolute;
+    /* display: none; */
+}
+
+.dnd5e.sheet.actor .retainer-ability {
+    position: relative;
+    min-width: 108px;
+}
+
+.dnd5e.sheet.actor .retainer-ability-mod{
+    text-align: right;
+}
+
+.dnd5e.sheet.actor .retainer-ability .proficiency-toggle{
+    text-align: center;
+}
