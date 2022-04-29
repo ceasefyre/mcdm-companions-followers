@@ -123,6 +123,9 @@ export default function extendedActorFunctions () {
                 const actorData = this.data;
                 const data = actorData.data;
 
+                //sets the AC value based on the three pregen configs
+                data.attributes.ac.value = data.attributes.retainerArmorClass;
+
                 const bonusData = this.getRollData();
                 for (let [id, abl] of Object.entries(data.abilities)) {
                     //retainer effectly has a +3 to all Ability Checks, and +4 to their primary Abillity
@@ -147,13 +150,6 @@ export default function extendedActorFunctions () {
                     const passiveBonus = this._simplifyBonus(skl.bonuses?.passive, bonusData);
                     skl.passive = 10 + skl.mod + skl.bonus + skl.prof.flat + passive + passiveBonus;
                 }
-
-
-
-
-
-
-
                 return;
             }
             return original.apply(this, arguments);

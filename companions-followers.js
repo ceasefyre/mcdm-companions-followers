@@ -43,10 +43,10 @@ ___________________________`);
 });
 
 Hooks.on("ready", () => {
-    CONFIG.DND5E.retainerArmor = {
-        light: 13,
-        medium: 15,
-        heavy: 18
+    CONFIG.DND5E.retainerArmorClass = {
+        13: "DND5E.EquipmentLight",
+        15: "DND5E.EquipmentMedium",
+        18: "DND5E.EquipmentHeavy"
     }
 });
 

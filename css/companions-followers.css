@@ -26,3 +26,8 @@
 .dnd5e.sheet.actor .retainer-ability .proficiency-toggle{
     text-align: center;
 }
+
+.dnd5e.sheet.actor .retainer-armor {
+    font-size: 11px;
+    height: 16px;
+}

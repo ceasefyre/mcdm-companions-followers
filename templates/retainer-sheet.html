@@ -68,13 +68,20 @@
                 <li class="attribute armor">
                     <h4 class="attribute-name box-title">
                         {{ localize "DND5E.ArmorClass" }}
-                        <a class="config-button" data-action="armor" title="{{localize 'DND5E.ArmorConfig'}}"><i class="fas fa-cog"></i></a>
+                        <!-- <a class="config-button" data-action="armor" title="{{localize 'DND5E.ArmorConfig'}}"><i class="fas fa-cog"></i></a> -->
                     </h4>
-                    <div class="attribute-value attributable" data-property="attributes.ac">
+                    <div class="attribute-value attributable">
                         <span>{{data.attributes.ac.value}}</span>
                     </div>
                     <footer class="attribute-footer">
-                        <span>{{labels.armorType}}</span>
+                        <!-- <span>{{labels.armorType}}</span> -->
+                        <select class="retainer-armor" name="data.attributes.retainerArmorClass">
+                            {{#select data.attributes.retainerArmorClass}}
+                            {{#each config.retainerArmorClass as |label ac|}}
+                                <option value="{{ac}}">{{localize label}}</option>
+                            {{/each}}
+                            {{/select}}
+                        </select>
                     </footer>
                 </li>
 
