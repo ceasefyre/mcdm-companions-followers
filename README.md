@@ -1,6 +1,4 @@
-# mcdm-companions-followers
-
-## MCDM Companions & Followers Sheets
+## Companions & Followers Sheets
 * **Author**: EndlesNights#9000
 * **Foundry VTT Compatibility**: v9
 
