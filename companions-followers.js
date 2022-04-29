@@ -48,6 +48,12 @@ Hooks.on("ready", () => {
         13: "DND5E.EquipmentLight",
         15: "DND5E.EquipmentMedium",
         18: "DND5E.EquipmentHeavy"
+    };
+
+    CONFIG.DND5E.retainerHitDieSize = {
+        8: "1d8",
+        10: "1d10",
+        12: "1d12"
     }
 });
 

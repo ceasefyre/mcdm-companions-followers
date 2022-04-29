@@ -19,21 +19,28 @@ export default function extendedActorFunctions () {
         const original = Actor5e.prototype._rest;
         return function () {
             original.apply(this, arguments);
-            const caregiver = this.getFlag(`mcdm-companions-followers`, 'caregiver')
-            if(caregiver){
-                const hitDie = Math.min(this.data.data.attributes.hd + Math.floor(this.data.data.details.level/2),this.data.data.details.level);
-                this.update({"data.attributes.hd": hitDie})
+
+            if(arguments[2]){ // check if long rest
+                const caregiver = this.getFlag(`mcdm-companions-followers`, 'caregiver');
+                const retainer = this.getFlag('core', 'sheetClass') === "dnd5e.MCDMRetainer5eSheet";
+                if(caregiver || retainer){
+                    const hitDie = Math.min(this.data.data.attributes.hd + Math.floor(this.data.data.details.level/2),this.data.data.details.level);
+                    this.update({"data.attributes.hd": hitDie})
+                }
             }
         }
-
     })();
 
     Actor5e.prototype.rollHitDie = (function (){
         const original = Actor5e.prototype.rollHitDie;
         return function () {
-            const caregiver = this.getFlag(`mcdm-companions-followers`, 'caregiver')
+            const caregiver = this.getFlag(`mcdm-companions-followers`, 'caregiver') //check if a companion
             if(caregiver){
                 companionRollHitDie(this, arguments);
+                return;
+            }
+            else if(this.getFlag('core', 'sheetClass') === "dnd5e.MCDMRetainer5eSheet"){//check if retainer
+                companionRollHitDie(this, arguments, this.data.data.attributes.retainerHitDieSize);
                 return;
             }
             return original.apply(this, arguments);
@@ -75,7 +82,6 @@ export default function extendedActorFunctions () {
     //     const original = Actor5e.prototype.prepareData;
     //     return function () {
     //         if(this.getFlag('core', 'sheetClass') === "dnd5e.MCDMRetainer5eSheet"){
-    //             console.log("ENTER EXTEND");
     //             this._preparationWarnings = [];
     //             super.prepareData();
     //         } else {
@@ -90,7 +96,6 @@ export default function extendedActorFunctions () {
         return function () {
 
             if(this.getFlag('core', 'sheetClass') === "dnd5e.MCDMRetainer5eSheet"){
-                console.log("Prepage Retainer")
                 const data = arguments[0].data;
 
                 data.details.level = Math.min(Math.max(parseInt(data.details.level), 1), 7);
@@ -101,9 +106,14 @@ export default function extendedActorFunctions () {
                 // Proficiency
                 data.attributes.prof = 2;
 
-                // Retainers have number of wounds equal to their levels
-                data.attributes.hp.max = data.details.level;
-            
+                // Retainers hb scales from HD value
+                switch(data.attributes.retainerHitDieSize){
+                    default : data.attributes.hp.max = 8 + data.details.level * 8; break;
+                    case '10': data.attributes.hp.max = 9 + data.details.level * 9; break;
+                    case '12': data.attributes.hp.max = 10 + data.details.level * 10; break;
+                }
+                if(data.attributes.hd === undefined) data.attributes.hd = 0;
+                
                 // Spellcaster Level
                 if ( data.attributes.spellcasting && !Number.isNumeric(data.details.spellLevel) ) {
                   data.details.spellLevel = Math.max(data.details.cr, 1);
@@ -218,9 +228,12 @@ export default function extendedActorFunctions () {
             return roll;
     }
 
-    async function companionRollHitDie(t, a){
-
-        const parts = [`1d8`, "@abilities.con.mod"];
+    async function companionRollHitDie(t, a, size=8){
+        if(t.data.data.attributes.hd <= 0){
+            ui.notifications.warn("You are out of Hit Dice.");
+            return;
+        }
+        const parts = [`1d${size}`, "@abilities.con.mod"];
         const flavor = game.i18n.localize("DND5E.HitDiceRoll");
         const title = `${flavor}: ${t.name}`;
         const data = foundry.utils.deepClone(t.data.data);

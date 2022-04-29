@@ -19,24 +19,13 @@ export default class CompanionHitDiceConfig extends DocumentSheet {
 
   /** @override */
   getData(options) {
-      console.log(this.object.data)
-      return {data: this.object.data.data, canRoll: !!this.object.data.data.attributes.hd};
-    // return {
-    //   classes: this.object.items.reduce((classes, item) => {
-    //     if (item.data.type === "class") {
-    //       // Add the appropriate data only if this item is a "class"
-    //       classes.push({
-    //         classItemId: item.data._id,
-    //         name: item.data.name,
-    //         diceDenom: item.data.data.hitDice,
-    //         currentHitDice: item.data.data.levels - item.data.data.hitDiceUsed,
-    //         maxHitDice: item.data.data.levels,
-    //         canRoll: (item.data.data.levels - item.data.data.hitDiceUsed) > 0
-    //       });
-    //     }
-    //     return classes;
-    //   }, []).sort((a, b) => parseInt(b.diceDenom.slice(1)) - parseInt(a.diceDenom.slice(1)))
-    // };
+      let label;
+      if(this.object.getFlag('core', 'sheetClass') === "dnd5e.MCDMRetainer5eSheet"){
+        label = `Retainer (d${this.object.data.data.attributes.retainerHitDieSize || 8})`;
+      } else{
+        label = "Companion (d8)";
+      }
+      return {data: this.object.data.data, canRoll: !!this.object.data.data.attributes.hd, label: label};
   }
 
   /* -------------------------------------------- */
@@ -61,23 +50,10 @@ export default class CompanionHitDiceConfig extends DocumentSheet {
 
   /** @override */
   async _updateObject(event, formData) {
-    console.log(this);
-    console.log(event);
-    console.log(formData);
-    console.log(formData[`attributes.hd`])
     const updateData = {};
 
     updateData[`data.attributes.hd`] = formData[`attributes.hd`];
-
-    
     return this.object.update(updateData);
-
-    const actorItems = this.object.items;
-    const classUpdates = Object.entries(formData).map(([id, hd]) => ({
-      _id: id,
-      "data.hitDiceUsed": actorItems.get(id).data.data.levels - hd
-    }));
-    return this.object.updateEmbeddedDocuments("Item", classUpdates);
   }
 
   /* -------------------------------------------- */
@@ -88,8 +64,6 @@ export default class CompanionHitDiceConfig extends DocumentSheet {
    * @private
    */
   async _onRollHitDie(event) {
-
-    console.log("rolling time")
     event.preventDefault();
     const button = event.currentTarget;
     await this.object.rollHitDie("d8");

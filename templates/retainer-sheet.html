@@ -55,7 +55,7 @@
             {{!-- Header Attributes --}}
             <ul class="attributes flexrow">
                 <li class="attribute health">
-                    <h4 class="attribute-name box-title">Hleath Levels</h4>
+                    <h4 class="attribute-name box-title">Hit Points</h4>
                     <div class="attribute-value multiple">
                         <input name="data.attributes.hp.value" type="text" value="{{data.attributes.hp.value}}" placeholder="10" 
                                data-dtype="Number" title="{{localize 'DND5E.HitPointsCurrent'}}" />
@@ -63,6 +63,31 @@
                         <input name="data.attributes.hp.max" type="text" value="{{data.attributes.hp.max}}" placeholder="10" 
                                data-dtype="Number" title="{{localize 'DND5E.HitPointsMax'}}" disabled/>
                     </div>
+
+                    <footer class="attribute-footer flexrow">
+                        <input name="data.attributes.hp.temp" type="text" class="temphp"
+                               placeholder="+{{ localize 'DND5E.Temp' }}"
+                               value="{{data.attributes.hp.temp}}" data-dtype="Number"
+                               title="{{localize 'DND5E.HitPointsTemp'}}">
+                    </footer>
+                </li>
+
+                <li class="attribute hit-dice">
+                    <h4 class="attribute-name box-title">
+                        {{ localize "DND5E.HitDice" }}
+                        <a class="config-button" data-action="hit-dice" title="{{localize 'DND5E.HitDiceConfig'}}"><i class="fas fa-cog"></i></a>
+                    </h4>
+                    <div class="attribute-value multiple">
+                        <label class="hit-dice">
+                            <span title="{{localize 'DND5E.HitDiceRemaining'}}">{{data.attributes.hd}}</span>
+                            <span class="sep"> / </span>
+                            <span title="{{localize 'DND5E.HitDiceMax'}}">{{data.details.level}}</span>
+                        </label>
+                    </div>
+                    <footer class="attribute-footer">
+                        <a class="rest short-rest" title="{{localize 'DND5E.ShortRest'}}">{{ localize "DND5E.RestS" }}</a>
+                        <a class="rest long-rest" title="{{localize 'DND5E.LongRest'}}">{{ localize "DND5E.RestL" }}</a>
+                    </footer>
                 </li>
 
                 <li class="attribute armor">
@@ -136,18 +161,6 @@
 
             <section class="center-pane flexcol">
                 <div class="counters">
-
-                    <div class="form-group">
-                        <label>Primary Ability</label>
-                        <select class="actor-size" name="data.attributes.primaryAbillity">
-                            {{#select data.attributes.primaryAbillity}}
-                            {{#each config.abilities as |ability id|}}
-                                <option value="{{id}}">{{ability}}</option>
-                            {{/each}}
-                            {{/select}}
-                        </select>
-                    </div>
-
                     <ul class="flexrow" style="list-style:none; padding-left: 0px;">
                         {{#each data.abilities as |ability id|}}
                         <li class="retainer-ability ability {{#if ability.proficient}}proficient{{/if}}" data-ability="{{id}}">
@@ -162,7 +175,26 @@
                         </li>
                         {{/each}}
                     </ul>
-
+                    <div class="form-group">
+                        <label>Primary Ability</label>
+                        <select class="actor-size" name="data.attributes.primaryAbillity">
+                            {{#select data.attributes.primaryAbillity}}
+                            {{#each config.abilities as |ability id|}}
+                                <option value="{{id}}">{{ability}}</option>
+                            {{/each}}
+                            {{/select}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Hit Die Size</label>
+                        <select class="actor-size" name="data.attributes.retainerHitDieSize">
+                            {{#select data.attributes.retainerHitDieSize}}
+                            {{#each config.retainerHitDieSize as |label hd|}}
+                                <option value="{{hd}}">{{localize label}}</option>
+                            {{/each}}
+                            {{/select}}
+                        </select>
+                    </div>
                 </div>
 
                 {{!-- Traits --}}
