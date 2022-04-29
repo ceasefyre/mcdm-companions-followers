@@ -7,8 +7,12 @@
     right: 2px;
     top: 3px;
     position: absolute;
-    /* display: none; */
+    display: none;
 }
+
+.dnd5e.sheet.actor .ability:hover .retainer-button {
+    display: block;
+  }
 
 .dnd5e.sheet.actor .retainer-ability {
     position: relative;
