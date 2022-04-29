@@ -4,7 +4,7 @@
 
 
 ## Description
-A [FoundryVTT](https://foundryvtt.com/) module that provides an implementation for a number of the different character and NPC sheet types from MCDM's system, such as the Retainers from the [Srongholds & Followers](https://shop.mcdmproductions.com/collections/strongholds-followers-books) and updated from the [Flee Mortals! Preview](https://www.kickstarter.com/projects/mattcolville/mcdm-monster-book), andas well as the Companions from [The Beastheart](https://shop.mcdmproductions.com/collections/beastheart-class-companions).
+A [FoundryVTT](https://foundryvtt.com/) module that provides an implementation for a number of the different character and NPC sheet types from MCDM's system, such as the Retainers from the [Srongholds & Followers](https://shop.mcdmproductions.com/collections/strongholds-followers-books) and updated from the [Flee Mortals! Preview](https://www.kickstarter.com/projects/mattcolville/mcdm-monster-book), as well as the Companions from [The Beastheart](https://shop.mcdmproductions.com/collections/beastheart-class-companions).
 
 The Companion sheets can be used for Player Character actor.
 The Retainer Sheets can be used for NPC actors.
