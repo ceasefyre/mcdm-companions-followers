@@ -1,10 +1,10 @@
 {
   "name": "mcdm-companions-followers",
   "title": "MCDM Companions & Followers Sheets",
-  "description": "Adds a number of MCDM NPC sheets for Companions, followers and retainers",
+  "description": "Adds a number of MCDM NPC sheets for Companions, retainers",
   "version": "0.0.1",
-  "minimumCoreVersion": "0.8.0",
-  "compatibleCoreVersion": "v9",
+  "minimumCoreVersion": "9.245",
+  "compatibleCoreVersion": "9",
   "author": "EndlesNights#9000",
   "systems": ["dnd5e"],
   "esmodules": ["/companions-followers.js"],
@@ -17,7 +17,7 @@
         "path": "lang/en.json"
       }
   ],
-"url": "",
-"manifest": "",
-"download": ""
+"url": "https://github.com/EndlesNights/mcdm-companions-followers",
+"manifest": "https://raw.githubusercontent.com/EndlesNights/mcdm-companions-followers/main/module.json",
+"download": "https://github.com/EndlesNights/mcdm-companions-followers/raw/main/mcdm-companions-followers.zip"
 }
