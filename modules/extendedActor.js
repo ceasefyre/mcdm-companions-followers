@@ -7,7 +7,7 @@ export default function extendedActorFunctions () {
     ItemSheet5e.prototype._getItemConsumptionTargets = (function () {
         const original = ItemSheet5e.prototype._getItemConsumptionTargets;
         return function(){
-            if(this.item.actor.data.data.ferocity !== undefined && this.object.data.data.consume.type === "attribute"){
+            if(this.item.actor?.data?.data?.ferocity !== undefined && this.object.data.data.consume?.type === "attribute"){
                 //adds ferocity as an option to the Resource Consumtion Attribute list at the head
                 return Object.assign({ferocity:"Ferocity", 'attributes.hd':"Hit-Die"},original.apply(this, arguments))
             }

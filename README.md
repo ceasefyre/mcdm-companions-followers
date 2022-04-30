@@ -1,6 +1,4 @@
-# mcdm-companions-followers
-
-## MCDM Companions & Followers Sheets
+# Companions & Followers Sheets
 * **Author**: EndlesNights#9000
 * **Foundry VTT Compatibility**: v9
 
@@ -8,10 +6,20 @@
 ## Description
 A [FoundryVTT](https://foundryvtt.com/) module that provides an implementation for a number of the different character and NPC sheet types from MCDM's system, such as the Retainers from the [Srongholds & Followers](https://shop.mcdmproductions.com/collections/strongholds-followers-books) and updated from the [Flee Mortals! Preview](https://www.kickstarter.com/projects/mattcolville/mcdm-monster-book), andas well as the Companions from [The Beastheart](https://shop.mcdmproductions.com/collections/beastheart-class-companions).
 
-The Companion sheets can be used for Player Character actor.
-The Retainer Sheets can be used for NPC actors.
-
 This project is not affiliated with MCDM and is in no way endorsed by them.
+
+# Features
+
+# Companion Sheet
+- Added as a Player Character Sheet
+- Allows you to designate a caregiver, who's level and proficiency bonus will be used to govern the stats of the Companion Character (such as Proficiency Bonus, Max HP)
+- Added a field to tracks Ferocity, which can be used as a consumable attribute by attacks/abilities.
+
+# Retainer Sheet
+- Added as a NPC Sheet
+- Replaces the standard ability scores with the Retainer's simplified primary ability system
+- Uses the HP system errata from the Flee Mortals Preview.
+
 
 
 ## Licenses

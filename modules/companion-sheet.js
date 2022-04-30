@@ -72,7 +72,7 @@ Hooks.on("renderMCDMCompanion5eSheet", (app, html) => {
     
     // const caregivers = game.actors.filter((a) => a.type === "character" && a.testUserPermission(game.user, "OWNER"));
     game.actors.forEach(act => {
-        if(act.type === "character" && act.testUserPermission(game.user, "OWNER")){
+        if(act.type === "character" && act.testUserPermission(game.user, "OWNER") && act.id !== app.actor.id){
             var option = document.createElement("option");
             option.value = act.id;
             option.text = act.name;
