@@ -1,7 +1,7 @@
 ## Companions & Followers Sheets
 
 * **Author**: EndlesNights#9000
-* **Version**: 0.0.3
+* **Version**: 1.0.0
 * **Foundry VTT Compatibility**: v9
 
 

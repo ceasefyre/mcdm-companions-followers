@@ -18,7 +18,7 @@ Hooks.on("renderMCDMCaregiver5eSheet", (app, html) => {
 <li class="attribute ferocity">
     <h4 class="attribute-name box-title rollable" data-action="rollFerocity">Ferocity</h4>
     <div class="attribute-value">
-        <input name="data.ferocity" type="text" data-dtype="Number" placeholder="0" value="${app.actor.data.data.ferocity}">
+        <input name="data.ferocity" type="text" data-dtype="Number" placeholder="0" value="${app.actor.data.data.ferocity || 0}">
     </div>
 </li>`;
     html.find(".attribute + .initiative").last().after(htmlElemenetFerocity);

@@ -2,7 +2,7 @@
   "name": "mcdm-companions-followers",
   "title": "MCDM Companions & Followers Sheets",
   "description": "Adds a number of MCDM NPC sheets for Companions, retainers",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "minimumCoreVersion": "9.245",
   "compatibleCoreVersion": "9",
   "author": "EndlesNights#9000",

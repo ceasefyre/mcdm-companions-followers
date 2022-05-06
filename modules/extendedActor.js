@@ -56,6 +56,12 @@ export default function extendedActorFunctions () {
         const original = Actor5e.prototype._prepareCharacterData;
         return function () {
 
+            if(game.actors && this.getFlag(`mcdm-companions-followers`, 'companion')){
+                if(!game.actors.get(this.getFlag(`mcdm-companions-followers`, 'companion'))){
+                    this.setFlag(`mcdm-companions-followers`, 'companion', null);
+                }
+            }
+
             const caregiver = this.getFlag(`mcdm-companions-followers`, 'caregiver')
             if(caregiver){
                 const hitDie = this.data.data.attributes.hd; //Companions don't need this data to be prepared as they do not get it from classes;
@@ -66,6 +72,10 @@ export default function extendedActorFunctions () {
                     return;
                 }
                 const caregiverAct = game.actors.get(caregiver);
+
+                if(!caregiverAct){
+                    this.setFlag(`mcdm-companions-followers`, 'caregiver', null);
+                }
                 this.data.data.attributes.prof = caregiverAct.data.data.attributes.prof;
                 this.data.data.details.level = caregiverAct.data.data.details.level;
 
@@ -78,6 +88,8 @@ export default function extendedActorFunctions () {
                 this.prepareDerivedData();
                 return;
             }
+
+
             
             return original.apply(this, arguments);
         }

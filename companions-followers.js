@@ -1,7 +1,3 @@
-import ActorSheet5eNPC from "../../systems/dnd5e/module/actor/sheets/npc.js";
-import ActorSheet5eCharacter from "../../systems/dnd5e/module/actor/sheets/character.js";
-
-
 import MCDMCaregiver5eSheet from './modules/caregiver-sheet.js';
 import MCDMCompanion5eSheet from './modules/companion-sheet.js';
 import MCDMRetainer5eSheet from './modules/retainer-sheet.js';
@@ -63,7 +59,8 @@ Hooks.on('preUpdateActor', async (actor, update, options, userId) => {
 
     //update flags on caregivers, these flags will be used to force update on the companions
     if(update.flags && update.flags['mcdm-companions-followers']?.caregiver){
-        const oldCaregiverID = actor.data.flags['mcdm-companions-followers'].caregiver;
+        // const oldCaregiverID = actor.data.flags['mcdm-companions-followers'].caregiver;
+        const oldCaregiverID = actor.getFlag('mcdm-companions-followers', 'caregiver');
         const newCaregiverID = update.flags['mcdm-companions-followers'].caregiver; 
         game.actors.get(newCaregiverID).setFlag('mcdm-companions-followers', 'companion', actor.id);
         if(oldCaregiverID) game.actors.get(oldCaregiverID).setFlag('mcdm-companions-followers', 'companion', null);
@@ -79,7 +76,9 @@ Hooks.on('preUpdateActor', async (actor, update, options, userId) => {
     //update partners ferocity to match other sheet
     if(update.data && 'ferocity' in update.data){
 
-        const partnerID = actor.data.flags['mcdm-companions-followers'].caregiver || actor.data.flags['mcdm-companions-followers'].companion;
+        // const partnerID = actor.data.flags['mcdm-companions-followers'].caregiver || actor.data.flags['mcdm-companions-followers'].companion;
+        const partnerID = actor.getFlag('mcdm-companions-followers', 'caregiver') || actor.getFlag('mcdm-companions-followers', 'companion');
+        if(!partnerID) return;
         const partner = game.actors.get(partnerID);
 
         if(partner.data.data.ferocity === update.data.ferocity){
