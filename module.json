@@ -1,7 +1,7 @@
 {
   "name": "mcdm-companions-followers",
-  "title": "MCDM Companions & Followers Sheets",
-  "description": "Adds a number of MCDM NPC sheets for Companions, retainers",
+  "title": "Companions & Followers Sheets",
+  "description": "Implements support for a number of MCDM's mechanicals rules including: Companions, Caregivers and Retainers.",
   "version": "1.0.0",
   "minimumCoreVersion": "9.245",
   "compatibleCoreVersion": "9",
