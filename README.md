@@ -17,6 +17,7 @@ This project is not affiliated with MCDM and is in no way endorsed by them.
 - Allows you to designate a caregiver, who's level and proficiency bonus will be used to govern the stats of the Companion Character (such as Proficiency Bonus, Max HP)
 - Added a field to tracks Ferocity, which can be used as a consumable attribute by attacks/abilities.
 - Ferocity will automatically sink to caregiver's sheet
+- NOTE: for the best Companion + Caregiver due experiences, the player should be owner of both actors.
 
 # Caregiver / Beastheart Sheet
 - Added as a Player Character Sheet

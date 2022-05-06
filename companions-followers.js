@@ -6,6 +6,10 @@ import extendedActorFunctions from './modules/extendedActor.js';
 
 Hooks.on('init', () => {
 
+console.log(
+`"Traditional software-elven greetings to all."
+                                                t{-_-t}`);
+
 //     console.log(
 // `___________________________
 // ___  _________________  ___
