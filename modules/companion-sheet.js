@@ -100,7 +100,7 @@ Hooks.on("renderMCDMCompanion5eSheet", (app, html) => {
 <label>Caregiver Level: ${caregiverActor.data.data.details.level || 0}</label>
 </div>
 `
-: `<label>No Caregiver =(</label>`;
+: `<label>No Caregiver</label>`;
     html.find(".charlevel").replaceWith(htmlCaregiverInfo);
 
 });

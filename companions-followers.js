@@ -69,8 +69,10 @@ Hooks.on('preUpdateActor', async (actor, update, options, userId) => {
     //force the companion to update its data if the caregiver changes
     if(actor.getFlag('mcdm-companions-followers', 'companion') && !(update.flags && update.flags['mcdm-companions-followers']?.companion)){
         const companion = game.actors.get(actor.getFlag('mcdm-companions-followers', 'companion'));
-        companion.prepareBaseData();
-        companion.sheet.render(companion.sheet.rendered); //if the sheet is also opened, force it to render again
+        if(companion){
+            companion.prepareBaseData();
+            companion.sheet.render(companion.sheet.rendered); //if the sheet is also opened, force it to render again
+        }
     }
 
     //update partners ferocity to match other sheet

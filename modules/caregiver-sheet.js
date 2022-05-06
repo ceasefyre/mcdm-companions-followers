@@ -26,7 +26,7 @@ Hooks.on("renderMCDMCaregiver5eSheet", (app, html) => {
 
     const htmlElementCompanion = `
 <div class="form-group">
-	<label>Companion: ${companion ? companion.data.name : "None! Forever alone T_T "}</label>
+	<label>Companion: ${companion ? companion.data.name : "No Companion"}</label>
 </div>`;
     html.find(".traits .form-group").first().before(htmlElementCompanion);
 });
