@@ -95,19 +95,6 @@ export default function extendedActorFunctions () {
         }
     })();
 
-    // Actor5e.prototype.prepareData = (function (){
-    //     const original = Actor5e.prototype.prepareData;
-    //     return function () {
-    //         if(this.getFlag('core', 'sheetClass') === "dnd5e.MCDMRetainer5eSheet"){
-    //             this._preparationWarnings = [];
-    //             super.prepareData();
-    //         } else {
-    //             return original.apply(this, arguments);
-    //         }
-    //     }
-
-    // })();
-
     Actor5e.prototype._prepareNPCData = (function (){
         const original = Actor5e.prototype._prepareNPCData;
         return function () {
