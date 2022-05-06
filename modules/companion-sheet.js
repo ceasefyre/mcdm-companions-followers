@@ -15,29 +15,29 @@ export default class MCDMCompanion5eSheet extends ActorSheet5eCharacter {
         const button = event.currentTarget;
         if(button.dataset.action === "rollferocity"){
 
-            let thisToken;
+            // let thisToken;
 
-            for(let t of canvas.tokens.controlled){
-                if(t.actor.uuid === this.actor.uuid){
-                    thisToken = t;
-                    break;
-                }
-            }
-            if(!thisToken){
-                for(let t of game.scenes.current.tokens){
-                    if(t.actor.uuid === this.actor.uuid){
-                        thisToken = t;
-                        break;
-                    }
-                }
-            }
+            // for(let t of canvas.tokens.controlled){
+            //     if(t.actor.uuid === this.actor.uuid){
+            //         thisToken = t;
+            //         break;
+            //     }
+            // }
+            // if(!thisToken){
+            //     for(let t of game.scenes.current.tokens){
+            //         if(t.actor.uuid === this.actor.uuid){
+            //             thisToken = t;
+            //             break;
+            //         }
+            //     }
+            // }
 
-            if(!thisToken){
-                ui.notifications.warn("No token was found in this current scene linked this actor.");
+            // if(!thisToken){
+            //     ui.notifications.warn("No token was found in this current scene linked this actor.");
 
-                this.actor.rollFerocity();
-                return;
-            }
+            //     this.actor.rollFerocity();
+            //     return;
+            // }
 
             //TODO - Count the vissible tokens next to thisToken, and add that value to the Ferocity Roll as the default value for bonus
             this.actor.rollFerocity();

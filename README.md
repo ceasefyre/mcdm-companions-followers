@@ -1,7 +1,7 @@
 ## Companions & Followers Sheets
 
 * **Author**: EndlesNights#9000
-* **Version**: 0.0.2
+* **Version**: 0.0.3
 * **Foundry VTT Compatibility**: v9
 
 
@@ -16,12 +16,21 @@ This project is not affiliated with MCDM and is in no way endorsed by them.
 - Added as a Player Character Sheet
 - Allows you to designate a caregiver, who's level and proficiency bonus will be used to govern the stats of the Companion Character (such as Proficiency Bonus, Max HP)
 - Added a field to tracks Ferocity, which can be used as a consumable attribute by attacks/abilities.
+- Ferocity will automatically sink to caregiver's sheet
+
+# Caregiver / Beastheart Sheet
+- Added as a Player Character Sheet
+- Added a field to tracks Ferocity, which can be used as a consumable attribute by attacks/abilities.
+- Ferocity will automatically sink to companion's sheet
+- shows name of linked companion
 
 # Retainer Sheet
 - Added as a NPC Sheet
 - Replaces the standard ability scores with the Retainer's simplified primary ability system
 - Uses the HP system errata from the Flee Mortals Preview.
 
+# Other
+- Adds Villain Actions as an option to abilityActivationTypes
 
 
 ## Licenses

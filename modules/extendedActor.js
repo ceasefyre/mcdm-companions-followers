@@ -1,17 +1,22 @@
 import Actor5e from '../../../systems/dnd5e/module/actor/entity.js';
 import ItemSheet5e from '../../../systems/dnd5e/module/item/sheet.js';
-import {d20Roll, damageRoll} from '../../../systems/dnd5e/module/dice.js';
+import {damageRoll} from '../../../systems/dnd5e/module/dice.js';
 
 export default function extendedActorFunctions () {
 
     ItemSheet5e.prototype._getItemConsumptionTargets = (function () {
         const original = ItemSheet5e.prototype._getItemConsumptionTargets;
         return function(){
-            if(this.item.actor?.data?.data?.ferocity !== undefined && this.object.data.data.consume?.type === "attribute"){
+
+            const originalObject = original.apply(this, arguments);
+            if(this.object.data.data.consume?.type === "attribute"){
                 //adds ferocity as an option to the Resource Consumtion Attribute list at the head
-                return Object.assign({ferocity:"Ferocity", 'attributes.hd':"Hit-Die"},original.apply(this, arguments))
+                if(this.object.getFlag('core', 'sheetClass') === "dnd5e.MCDMRetainer5eSheet" ||  this.item.actor?.data?.data?.ferocity !== undefined){
+                    return Object.assign({ferocity:"Ferocity", 'attributes.hd':"Hit-Die"},originalObject);
+                }
+                return Object.assign({ferocity:"Ferocity"},originalObject);
             }
-            return original.apply(this, arguments);
+            return originalObject;
         }
     }());
 
@@ -178,27 +183,6 @@ export default function extendedActorFunctions () {
         const abilities = {};
 
     }
-	// Actor5e.prototype._onUpdate = (function (){
-
-	// 	const original = Actor5e.prototype._onUpdate;
-
-	// 	return function () {
-    //         console.log(this.data.flags)
-    //         if(this.data.flags?.core?.sheetClass === "dnd5e.MCDMCaregiver5eSheet"){
-    //             console.log("Caregiver");
-    //             return original.apply(this, arguments);
-    //         }
-    //         else if(this.data.flags?.core?.sheetClass === "dnd5e.MCDMCompanion5eSheet"){
-    //             console.log("Companion");
-    //             // return original.apply(this, arguments);
-    //         } else {
-    //             console.log("Not Caregiver");
-    //             return original.apply(this, arguments);
-    //         }
-
-    //         original.apply(this, arguments);
-	// 	}
-	// })();
 
     async function rollFerocity(t, dialog=true, options = {}){
         const parts = [`1d4`];

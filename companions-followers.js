@@ -21,11 +21,11 @@ Hooks.on('init', () => {
 // ___________________________`);
 
 
-    // Actors.registerSheet("dnd5e", MCDMCaregiver5eSheet, {
-    //     types: ["character"],
-    //     makeDefault: false,
-    //     label: "Caregiver Character Sheet"
-    // });
+    Actors.registerSheet("dnd5e", MCDMCaregiver5eSheet, {
+        types: ["character"],
+        makeDefault: false,
+        label: "Beastheart / Caregiver Character Sheet"
+    });
 
     extendedActorFunctions();
 
@@ -55,9 +55,12 @@ Hooks.on("ready", () => {
         10: "1d10",
         12: "1d12"
     }
+
+    CONFIG.DND5E.abilityActivationTypes.villian = game.i18n.localize("MCDMSheet.VillainAction");
 });
 
 Hooks.on('preUpdateActor', async (actor, update, options, userId) => {
+
     //update flags on caregivers, these flags will be used to force update on the companions
     if(update.flags && update.flags['mcdm-companions-followers']?.caregiver){
         const oldCaregiverID = actor.data.flags['mcdm-companions-followers'].caregiver;
@@ -71,6 +74,20 @@ Hooks.on('preUpdateActor', async (actor, update, options, userId) => {
         const companion = game.actors.get(actor.getFlag('mcdm-companions-followers', 'companion'));
         companion.prepareBaseData();
         companion.sheet.render(companion.sheet.rendered); //if the sheet is also opened, force it to render again
+    }
 
+    //update partners ferocity to match other sheet
+    if(update.data && 'ferocity' in update.data){
+
+        const partnerID = actor.data.flags['mcdm-companions-followers'].caregiver || actor.data.flags['mcdm-companions-followers'].companion;
+        const partner = game.actors.get(partnerID);
+
+        if(partner.data.data.ferocity === update.data.ferocity){
+            return;
+        }
+        if(options.partner){
+        } else {
+            await partner.update({data:{ferocity:update.data.ferocity}},{partner:actor.id});
+        }
     }
 });

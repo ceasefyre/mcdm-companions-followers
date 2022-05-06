@@ -11,4 +11,22 @@ export default class MCDMCaregiver5eSheet extends ActorSheet5e {
 
 Hooks.on("renderMCDMCaregiver5eSheet", (app, html) => {
 
+    const companionID = app.actor.getFlag("mcdm-companions-followers","companion");
+    const companion = companionID ? game.actors.get(companionID) : null;
+
+    const htmlElemenetFerocity =`
+<li class="attribute ferocity">
+    <h4 class="attribute-name box-title rollable" data-action="rollFerocity">Ferocity</h4>
+    <div class="attribute-value">
+        <input name="data.ferocity" type="text" data-dtype="Number" placeholder="0" value="${app.actor.data.data.ferocity}">
+    </div>
+</li>`;
+    html.find(".attribute + .initiative").last().after(htmlElemenetFerocity);
+
+
+    const htmlElementCompanion = `
+<div class="form-group">
+	<label>Companion: ${companion ? companion.data.name : "None! Forever alone T_T "}</label>
+</div>`;
+    html.find(".traits .form-group").first().before(htmlElementCompanion);
 });
