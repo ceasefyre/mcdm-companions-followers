@@ -12,25 +12,25 @@ This project is not affiliated with MCDM and is in no way endorsed by them.
 
 # Features
 
-## Companion Sheet
+### Companion Sheet
 - Added as a Player Character Sheet
 - Allows you to designate a caregiver, who's level and proficiency bonus will be used to govern the stats of the Companion Character (such as Proficiency Bonus, Max HP)
 - Added a field to tracks Ferocity, which can be used as a consumable attribute by attacks/abilities.
 - Ferocity will automatically sink to caregiver's sheet
-- NOTE: for the best Companion + Caregiver due experiences, the player should be owner of both actors.
+- NOTE: for the best Companion & Caregiver duo experiences, the player should be owner of both actors.
 
-## Caregiver / Beastheart Sheet
+### Caregiver / Beastheart Sheet
 - Added as a Player Character Sheet
 - Added a field to tracks Ferocity, which can be used as a consumable attribute by attacks/abilities.
 - Ferocity will automatically sink to companion's sheet
 - shows name of linked companion
 
-## Retainer Sheet
+### Retainer Sheet
 - Added as a NPC Sheet
 - Replaces the standard ability scores with the Retainer's simplified primary ability system
 - Uses the HP system errata from the Flee Mortals Preview.
 
-## Other
+### Other
 - Adds Villain Actions as an option to abilityActivationTypes
 
 # Licenses
