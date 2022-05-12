@@ -33,12 +33,12 @@ This project is not affiliated with MCDM and is in no way endorsed by them.
 # Other
 - Adds Villain Actions as an option to abilityActivationTypes
 
-
-## Licenses
-* This module implements game mechanics as described in Appendix 2: Warfare of the Strongholds & Followers, Page 48: Beastheart and Monstrous Companions, and Page 26: Flee Mortals Preview publication under the terms of the Open Game License v1.0a. A copy of this license is distributed along with the module, please see [OGL.txt](https://raw.githubusercontent.com/EndlesNights/mcdm-companions-followers/main/OGL.txt) for the full terms of the license.
-The Software portion of this module is distributed under the [GNUv3 license](https://github.com/EndlesNights/mcdm-companions-followers/blob/main/LICENSE.txt).
-
 ## Installation
 * Open the Foundry application and click **"Install Modules"** in the **"Add-on Modules"** tab.
 * Paste the following link: https://raw.githubusercontent.com/EndlesNights/mcdm-companions-followers/main/module.json
 * Click "Install"
+
+## Licenses
+This module implements game mechanics as described in Appendix 2: Warfare of the Strongholds & Followers, Page 48: Beastheart and Monstrous Companions, and Page 26: Flee Mortals Preview publication under the terms of the Open Game License v1.0a. A copy of this license is distributed along with the module, please see [OGL.txt](https://raw.githubusercontent.com/EndlesNights/mcdm-companions-followers/main/OGL.txt) for the full terms of the license.
+
+The Software portion of this module is distributed under the [GNUv3 license](https://github.com/EndlesNights/mcdm-companions-followers/blob/main/LICENSE.txt).
