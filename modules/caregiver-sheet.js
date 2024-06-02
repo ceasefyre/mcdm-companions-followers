@@ -1,4 +1,5 @@
-import ActorSheet5eCharacter from "../../../systems/dnd5e/module/actor/sheets/character.js";
+// module/applications/actor/character-sheet.mjs
+import ActorSheet5eCharacter from "../../../systems/dnd5e/module/applications/actor/character-sheet.mjs";
 
 export default class MCDMCaregiver5eSheet extends ActorSheet5eCharacter {
     get template() {

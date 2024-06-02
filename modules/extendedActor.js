@@ -1,6 +1,9 @@
-import Actor5e from '../../../systems/dnd5e/module/actor/entity.js';
-import ItemSheet5e from '../../../systems/dnd5e/module/item/sheet.js';
-import {damageRoll} from '../../../systems/dnd5e/module/dice.js';
+// module/documents/actor/actor.mjs
+import Actor5e from '../../../systems/dnd5e/module/documents/actor/actor.mjs';
+// module/documents/item.mjs
+import ItemSheet5e from '../../../systems/dnd5e/module/documents/item.mjs';
+// module/dice/dice.mjs
+import {damageRoll} from '../../../systems/dnd5e/module/dice/dice.mjs';
 
 export default function extendedActorFunctions () {
 

@@ -1,5 +1,7 @@
-import ActorSheet5eNPC from '../../../systems/dnd5e/module/actor/sheets/npc.js';
-import ActorSheet5e from '../../../systems/dnd5e/module/actor/sheets/base.js';
+// module/applications/actor/npc-sheet.mjs
+import ActorSheet5eNPC from '../../../systems/dnd5e/module/applications/actor/npc-sheet.mjs';
+// module/applications/actor/base-sheet.mjs
+import ActorSheet5e from '../../../systems/dnd5e/module/applications/actor/base-sheet.mjs';
 
 import CompanionHitDiceConfig from "./apps/companion-hit-dice-config.js";
 

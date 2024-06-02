@@ -1,4 +1,4 @@
-import ActorSheet5eCharacter from "../../../systems/dnd5e/module/actor/sheets/character.js";
+import ActorSheet5eCharacter from "../../../systems/dnd5e/module/applications/actor/character-sheet.mjs";
 import CompanionHitPointConfig from "./apps/companion-hit-points-config.js";
 import CompanionHitDiceConfig from "./apps/companion-hit-dice-config.js";
 
