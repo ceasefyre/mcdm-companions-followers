@@ -1,11 +1,11 @@
 {
   "name": "mcdm-companions-followers",
   "title": "Companions & Followers Sheets",
-  "description": "Implements support for a number of MCDM's mechanicals rules including: Companions, Caregivers and Retainers.",
-  "version": "1.0.0",
+  "description": "Implements support for a number of MCDM's mechanicals rules including: Companions, Caregivers and Retainers. Forked from original version by EndlesNights#9000",
+  "version": "1.0.1",
   "minimumCoreVersion": "9.245",
-  "compatibleCoreVersion": "9",
-  "author": "EndlesNights#9000",
+  "compatibleCoreVersion": "11",
+  "author": "ceasefyre",
   "systems": ["dnd5e"],
   "esmodules": ["/companions-followers.js"],
   "styles": ["./css/companions-followers.css"],
@@ -17,7 +17,7 @@
         "path": "lang/en.json"
       }
   ],
-"url": "https://github.com/EndlesNights/mcdm-companions-followers",
-"manifest": "https://raw.githubusercontent.com/EndlesNights/mcdm-companions-followers/main/module.json",
-"download": "https://github.com/EndlesNights/mcdm-companions-followers/raw/main/mcdm-companions-followers.zip"
+"url": "https://github.com/ceasefyre/mcdm-companions-followers",
+"manifest": "https://raw.githubusercontent.com/ceasefyre/mcdm-companions-followers/main/module.json",
+"download": "https://github.com/ceasefyre/mcdm-companions-followers/raw/main/mcdm-companions-followers.zip"
 }
