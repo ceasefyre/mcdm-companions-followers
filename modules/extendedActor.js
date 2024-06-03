@@ -1,12 +1,12 @@
 // module/documents/actor/actor.mjs
 import Actor5e from '../../../systems/dnd5e/module/documents/actor/actor.mjs';
-// module/documents/item.mjs
-import ItemSheet5e from '../../../systems/dnd5e/module/documents/item.mjs';
+// module/applications/item/item-sheet.mjs
+import ItemSheet5e from '../../../systems/dnd5e/module/applications/item/item-sheet.mjs';
 // module/dice/dice.mjs
 import {damageRoll} from '../../../systems/dnd5e/module/dice/dice.mjs';
 
 export default function extendedActorFunctions () {
-
+    //module/applications/item/item-sheet.mjs
     ItemSheet5e.prototype._getItemConsumptionTargets = (function () {
         const original = ItemSheet5e.prototype._getItemConsumptionTargets;
         return function(){
