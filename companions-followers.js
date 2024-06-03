@@ -19,7 +19,7 @@ console.log(
 // | |  | | \\__/\\ |/ /| |  | |
 // \\_|  |_/\\____/___/ \\_|  |_/
 // ___________________________`);
-    DocumentSheetConfig.registerSheet(Actor,"dnd5e",MCDMCaregiver5eSheet,{
+    Actors.registerSheet("dnd5e",MCDMCaregiver5eSheet,{
         types: ["character"],
         makeDefault: false,
         label: 'Caregiver Character Sheet',
@@ -27,13 +27,13 @@ console.log(
 
     extendedActorFunctions();
 
-    DocumentSheetConfig.registerSheet(Actor,"dnd5e",MCDMCompanion5eSheet,{
+    Actors.registerSheet("dnd5e",MCDMCompanion5eSheet,{
         types: ["character"],
         makeDefault: false,
         label: 'Companion Sheet',
     });
 
-    DocumentSheetConfig.registerSheet(Actor,"dnd5e",MCDMRetainer5eSheet,{
+    Actors.registerSheet("dnd5e",MCDMRetainer5eSheet,{
         types: ["npc"],
         makeDefault: false,
         label: 'Retainer Sheet',
